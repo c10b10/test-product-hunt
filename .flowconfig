@@ -1,0 +1,14 @@
+[ignore]
+    .*node_modules/fbjs.*
+    .*node_modules/webpack.*
+    .*/node_modules/redux/examples/.*
+    .*/node_modules/redux/lib/.*
+    .*/react/node_modules/.*
+[include]
+    node_modules/react
+    node_modules/react-dom
+    node_modules/classnames
+    node_modules/redux
+[libs]
+
+[options]

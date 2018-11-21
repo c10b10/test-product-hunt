@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "lodash": "^4.17.11",
+    "normalizr": "^3.3.0",
+    "parse-link-header": "^1.0.1",
+    "query-string": "^6.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-modal": "^3.6.1",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "reselect": "^4.0.0",
+    "styled-components": "^4.1.1",
+    "styled-normalize": "sergeysova/styled-normalize@v8.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,5 +33,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "flow-bin": "^0.86.0",
+    "react-scripts": "^2.1.1"
+  }
 }
