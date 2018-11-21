@@ -1,19 +1,16 @@
-// import { delay } from "redux-saga";
 import { all, take, put, call, fork } from "redux-saga/effects";
 
 import * as api from "../api";
 import * as actions from "./actions";
 import * as t from "./actionTypes";
+import type { ProductsApiParams } from "./types";
 
-export const fetchProducts = (
-  apiParams: ProductsApiParams,
-  nextPageUrl: string
-) =>
-  api.callApi(nextPageUrl || api.buildEndpoint("posts/all", apiParams), {
+export const fetchProducts = (apiParams: ProductsApiParams) =>
+  api.callApi(api.buildEndpoint("posts/all", apiParams), {
     schema: api.schemas.PRODUCTS
   });
 
-function* sendApiRequest(entity: FetchActions, apiFn: any, param = []) {
+function* sendApiRequest(entity: any, apiFn: any, param = []) {
   // Call request with the params
   yield put(entity.request.call(null, ...param));
   // Fetch the data with the api function
@@ -26,10 +23,9 @@ function* sendApiRequest(entity: FetchActions, apiFn: any, param = []) {
   }
 }
 
-function* loadProducts({ apiParams, nextPageUrl }: any) {
+function* loadProducts({ apiParams }: any) {
   yield call(sendApiRequest, actions.fetchProductsApiActions, fetchProducts, [
-    apiParams,
-    nextPageUrl
+    apiParams
   ]);
 }
 
@@ -40,17 +36,6 @@ function* watchLoadProducts() {
   }
 }
 
-// function* watchLoadDecks() {
-//   while (true) {
-//     yield take(t.GET_CATEGORIES);
-//     yield fork(loadDecks);
-//   }
-// }
-
 export default function* productsSaga() {
-  // TODO Why do these need to be forked?
-  yield all([
-    // fork(watchGetAccessToken),
-    fork(watchLoadProducts)
-  ]);
+  yield all([fork(watchLoadProducts)]);
 }

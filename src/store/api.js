@@ -4,14 +4,7 @@ import queryString from "query-string";
 
 export const API_ROOT = "https://api.producthunt.com/v1/";
 
-interface ApiOptions {
-  payload?: any;
-  schema?: any[] | any;
-  method?: "GET" | "POST";
-  meta?: any;
-}
-
-// to.js
+// Helper function that allows error management with async / await
 export default function to(promise) {
   return promise
     .then(data => {
@@ -22,7 +15,7 @@ export default function to(promise) {
 
 export const callApi = async (
   endpoint: string,
-  { payload, schema, method = "GET", meta }: ApiOptions
+  { payload, schema, method = "GET", meta }
 ) => {
   const request = Object.assign(
     {
@@ -30,8 +23,9 @@ export const callApi = async (
       headers: new Headers({
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization:
-          "Bearer e3950bc36644b8bcf6246a0bf97bea786c68c501d689ea2656f156b56acac35c",
+        Authorization: `Bearer ${
+          process.env.REACT_APP_PRODUCT_HUNT_ACESS_TOKEN
+        }`,
         Host: "api.producthunt.com"
       })
     },

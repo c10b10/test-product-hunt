@@ -16,3 +16,7 @@ export type ProductsState = {
   },
   isLoading: boolean
 };
+
+export type ProductsApiParams = {
+  "search[featured_year]": number
+};
