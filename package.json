@@ -21,6 +21,7 @@
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",
     "styled-components": "^4.1.1",
+    "react-scripts": "^2.1.1",
     "styled-normalize": "sergeysova/styled-normalize@v8.0.6"
   },
   "scripts": {
@@ -39,7 +40,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "flow-bin": "^0.86.0",
-    "react-scripts": "^2.1.1"
+    "flow-bin": "^0.86.0"
   }
 }
